@@ -24,4 +24,8 @@ public class MarkdownParseTest {
         assertEquals(List.of("https://something.com","some-page.html"), MarkdownParse.getLinks(regLines));
     }
 
+    @Test
+    public void testFail(){
+        assertEquals(1,3);
+    }
     }
