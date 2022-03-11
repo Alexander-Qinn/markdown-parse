@@ -13,4 +13,11 @@ public class MarkdownParseTest {
         String[] regLines = regFile.split("\n");
         assertEquals(List.of("https://something.com","some-page.html"), MarkdownParse.getLinks(regLines));
     }
+
+    @Test
+    public void testSnippet1() throws IOException {
+        String regFile = Files.readString(Path.of("./snippet-1.md"));
+        String[] regLines = regFile.split("\n");
+        assertEquals(List.of("url.com", "`google.com", "google.com", "ucsd.edu"), MarkdownParse.getLinks(regLines));
+    }
 }
