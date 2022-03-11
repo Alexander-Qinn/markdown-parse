@@ -1,17 +1,15 @@
-// File reading code from https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.nio.file.Paths;
 
 public class MarkdownParse {
     public static ArrayList<String> getLinks(String[] markdown) {
         ArrayList<String> toReturn = new ArrayList<>();
-        int currentIndex = 0;
+        int currentIndex;
         for (String line: markdown) {
             currentIndex = 0;
-            if (line.indexOf(")") == -1) {
+            if (line.indexOf(")") == -1){
                 continue;
             }
             int openParen = line.indexOf("(", currentIndex);
@@ -22,9 +20,9 @@ public class MarkdownParse {
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
-        String regFile = Files.readString(Path.of(args[0]));
+		String regFile = Files.readString(Path.of(args[0]));
         String[] regLines = regFile.split("\n");
         ArrayList<String> links = getLinks(regLines);
         System.out.println(links);
+        
     }
-}
